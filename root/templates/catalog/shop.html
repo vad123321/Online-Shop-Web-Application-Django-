@@ -1,0 +1,19 @@
+{% extends '_layouts/base.html' %}
+{% block content %}
+<section id="shop" class="padding-medium">
+    <div class="container">
+        <h2 class="display-5 mb-4">Каталог товарів</h2>
+        <div class="row">
+            <!-- Product example -->
+            <div class="col-md-4 mb-4">
+                <div class="product-item">
+                    <img src="{% static 'images/item1.jpg' %}" class="img-fluid" alt="product">
+                    <h5 class="mt-2"><a href="{% url 'product_detail' 1 %}">Product Name</a></h5>
+                    <p class="fw-bold">$22.00</p>
+                </div>
+            </div>
+            <!-- Add more products here -->
+        </div>
+    </div>
+</section>
+{% endblock %}

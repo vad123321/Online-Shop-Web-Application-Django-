@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRONOS - WebShop</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/logo-2.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="sidebar-modal" style="display:none;">
+        {% include '_fragments/sidebar.html' %}
+    </div>
+    {% include '_fragments/header.html' %}
+    {% include '_fragments/breadcrumb.html' %}
+    {% block content %}{% endblock %}
+    {% include '_fragments/footer.html' %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebarModal = document.getElementById('sidebar-modal');
+            const catalogBtn = document.querySelector('.catalog-btn');
+            if (catalogBtn && sidebarModal) {
+                catalogBtn.addEventListener('click', function () {
+                    sidebarModal.style.display = 'flex';
+                });
+                sidebarModal.addEventListener('click', function (e) {
+                    if (e.target === sidebarModal) {
+                        sidebarModal.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
